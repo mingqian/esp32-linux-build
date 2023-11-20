@@ -29,9 +29,11 @@ if [ ! -d autoconf-2.71/root/bin ] ; then
 fi
 export PATH=`pwd`/autoconf-2.71/root/bin:$PATH
 
-if [ -z "$keep_toolchain$keep_buildroot$keep_rootfs$keep_bootloader" ] ; then
+if [ -z "$keep_dynconfig$keep_toolchain$keep_buildroot$keep_rootfs$keep_bootloader" ] ; then
 	rm -rf build
 else
+	[ -n "$keep_dynconfig" ] || rm -rf build/xtensa-dynconfig
+	[ -n "$keep_toolchain" ] || rm -rf build/crosstool-NG
 	[ -n "$keep_rootfs" ] || rm -rf build/build-buildroot-esp32s3
 	[ -n "$keep_buildroot" ] || rm -rf build/buildroot
 	[ -n "$keep_bootloader" ] || rm -rf build/esp-hosted
