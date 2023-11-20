@@ -14,7 +14,7 @@ SET_BAUDRATE='-b 2000000'
 
 CTNG_VER=xtensa-fdpic-dev
 CTNG_CONFIG=xtensa-esp32s3-linux-uclibcfdpic
-BUILDROOT_VER=xtensa-2023.08-fdpic
+BUILDROOT_VER=xtensa-2023.08-fdpic-dev
 BUILDROOT_CONFIG=esp32s3_defconfig
 ESP_HOSTED_VER=ipc
 ESP_HOSTED_CONFIG=sdkconfig.defaults.esp32s3
@@ -68,7 +68,7 @@ fi
 # kernel and rootfs
 #
 if [ ! -d buildroot ] ; then
-	git clone https://github.com/jcmvbkbc/buildroot -b $BUILDROOT_VER
+	git clone git@github.com:mingqian/buildroot.git -b $BUILDROOT_VER
 else
 	pushd buildroot
 	git pull
