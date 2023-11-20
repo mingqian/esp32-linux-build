@@ -12,7 +12,7 @@
 
 SET_BAUDRATE='-b 2000000'
 
-CTNG_VER=xtensa-fdpic
+CTNG_VER=xtensa-fdpic-dev
 CTNG_CONFIG=xtensa-esp32s3-linux-uclibcfdpic
 BUILDROOT_VER=xtensa-2023.08-fdpic
 BUILDROOT_CONFIG=esp32s3_defconfig
@@ -55,7 +55,7 @@ export XTENSA_GNU_CONFIG=`pwd`/xtensa-dynconfig/esp32s3.so
 # toolchain
 #
 if [ ! -x crosstool-NG/builds/xtensa-esp32s3-linux-uclibcfdpic/bin/xtensa-esp32s3-linux-uclibcfdpic-gcc ] ; then
-	git clone https://github.com/jcmvbkbc/crosstool-NG.git -b $CTNG_VER
+	git clone git@github.com:mingqian/crosstool-NG.git -b $CTNG_VER
 	pushd crosstool-NG
 	./bootstrap && ./configure --enable-local && make
 	./ct-ng $CTNG_CONFIG
